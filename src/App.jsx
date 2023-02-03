@@ -2,12 +2,20 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import Circle from './circle';
+import Circle2 from './circle2';
+import HSteppers from './Component/HSteppers/HSteppers';
+import ProgressBar from './Component/Progress/progressBar';
+import ProgressBar2 from './Component/Progress/ProgressBar2';
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <Circle />
+      <Circle2 />
+      <ProgressBar2 value={100} max={100} animationDuration={2000} />
+      <HSteppers />
+      {/* <ProgressBar /> */}
     </div>
   );
 }

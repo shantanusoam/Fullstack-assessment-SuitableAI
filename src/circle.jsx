@@ -1,37 +1,60 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
-
-const steps = [
-  { name: 'Step 1', href: '#', status: 'complete' },
-  { name: 'Step 2', href: '#', status: 'complete' },
-  { name: 'Step 3', href: '#', status: 'current' },
-  { name: 'Step 4', href: '#', status: 'upcoming' },
-  { name: 'Step 5', href: '#', status: 'upcoming' },
-];
+import { useState } from 'react';
+import ProgressBar from './Component/Progress/progressBar';
+import ProgressBar2 from './Component/Progress/ProgressBar2';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Circle() {
+  const [todos, setTodos] = useState([
+    { id: 0, name: 'Step 1', href: '#', status: 'current' },
+    { id: 1, name: 'Step 2', href: '#', status: 'upcoming' },
+    { id: 2, name: 'Step 3', href: '#', status: 'upcoming' },
+    { id: 3, name: 'Step 4', href: '#', status: 'upcoming' },
+    { id: 4, name: 'Step 5', href: '#', status: 'upcoming' },
+    { id: 5, name: 'Step 5', href: '#', status: 'upcoming' },
+  ]);
+  const [progressBarValue, setprogressBarValue] = useState(0);
+  const handleTodoCompletion = (id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, status: 'complete' };
+        } else if (todo.id < id) {
+          return { ...todo, status: 'complete' };
+        } else if (todo.id === id + 1) {
+          return { ...todo, status: 'current' };
+        } else if (todo.id > id) {
+          return { ...todo, status: 'upcoming' };
+        }
+      })
+    );
+    setprogressBarValue((id * 100 + todos.length) / todos.length);
+  };
   return (
     <nav aria-label="Progress">
-      <ol role="list" className="flex items-center">
-        {steps.map((step, stepIdx) => (
+      <ol
+        role="list"
+        className="flex relative justify-center items-center mx-20"
+      >
+        {todos.map((step, stepIdx) => (
           <li
             key={step.name}
             className={classNames(
-              stepIdx !== steps.length - 1 ? 'pr-8 sm:pr-20' : '',
-              'relative'
+              stepIdx !== todos.length - 1 ? 'pr-8 sm:pr-20' : '',
+              'relative w-full '
             )}
           >
             {step.status === 'complete' ? (
-              <>
-                <div
+              <div onClick={() => handleTodoCompletion(stepIdx)}>
+                {/* <div
                   className="absolute inset-0 flex items-center"
                   aria-hidden="true"
                 >
                   <div className="h-0.5 w-full bg-indigo-600" />
-                </div>
+                </div> */}
                 <a
                   href="#"
                   className="relative flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 hover:bg-indigo-900"
@@ -42,9 +65,9 @@ export default function Circle() {
                   />
                   <span className="sr-only">{step.name}</span>
                 </a>
-              </>
+              </div>
             ) : step.status === 'current' ? (
-              <>
+              <div onClick={() => handleTodoCompletion(stepIdx)}>
                 <div
                   className="absolute inset-0 flex items-center"
                   aria-hidden="true"
@@ -62,9 +85,9 @@ export default function Circle() {
                   />
                   <span className="sr-only">{step.name}</span>
                 </a>
-              </>
+              </div>
             ) : (
-              <>
+              <div onClick={() => handleTodoCompletion(stepIdx)}>
                 <div
                   className="absolute inset-0 flex items-center"
                   aria-hidden="true"
@@ -81,10 +104,17 @@ export default function Circle() {
                   />
                   <span className="sr-only">{step.name}</span>
                 </a>
-              </>
+              </div>
             )}
           </li>
         ))}
+        <div className="absolute w-full -z-10">
+          <ProgressBar2
+            value={progressBarValue}
+            max={100}
+            animationDuration={2000}
+          />
+        </div>
       </ol>
     </nav>
   );
