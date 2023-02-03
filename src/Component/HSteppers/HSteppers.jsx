@@ -23,6 +23,12 @@ const HSteppers = () => {
 
   return (
     <div className="flex flex-col">
+      <div className="flex flex-row">
+        <div>shantanu</div>
+        <div>soam</div>
+
+        <div>pk</div>
+      </div>
       {todos.map(() => (
         <div className="py-20 w-screen">
           <Circle />
