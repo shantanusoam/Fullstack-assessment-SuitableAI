@@ -62,7 +62,7 @@ export default function Circle({ employe, setemployes }) {
   return (
     <tr
       role="list"
-      className={`flex flex-col lg:items-center lg:justify-center lg:flex-row  rounded-md ${
+      className={`flex flex-col items-center justify-center lg:flex-row  rounded-md ${
         employe.id % 2 === 0 ? 'bg-slate-100' : 'bg-white'
       } lg:border-grey-light py-4`}
     >
@@ -85,7 +85,7 @@ export default function Circle({ employe, setemployes }) {
           className={`
             ${
               (stepIdx !== status.length - 1 ? '' : '',
-              'relative px-4 py-3 w-full lg:px-6 lg:py-4 ')
+              'relative px-4 py-3 w-full lg:px-6 lg:py-4 lg:block hidden')
             }`}
         >
           {/* {' '} */}
