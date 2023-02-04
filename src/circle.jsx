@@ -62,9 +62,9 @@ export default function Circle({ employe, setemployes }) {
   return (
     <tr
       role="list"
-      className={`flex flex-col items-center justify-center lg:flex-row  rounded-md ${
+      className={`flex flex-col lg:items-center lg:justify-center lg:flex-row  rounded-md ${
         employe.id % 2 === 0 ? 'bg-slate-100' : 'bg-white'
-      } lg:border-grey-light py-10`}
+      } lg:border-grey-light py-4`}
     >
       <td className="relative px-4 py-3 w-full lg:px-6 lg:py-4 min-w-fit">
         <div className="flex flex-row">
@@ -85,7 +85,7 @@ export default function Circle({ employe, setemployes }) {
           className={`
             ${
               (stepIdx !== status.length - 1 ? '' : '',
-              'relative px-4 py-3 w-full lg:px-6 lg:py-4')
+              'relative px-4 py-3 w-full lg:px-6 lg:py-4 ')
             }`}
         >
           {/* {' '} */}
@@ -105,6 +105,7 @@ export default function Circle({ employe, setemployes }) {
               id={step.id}
               status={step.status}
               days={employe.daysRemaining}
+              userExsists={employe.userExsists}
             />
             <CureenIcons employe={employe} status={step.status} id={step.id} />
           </div>

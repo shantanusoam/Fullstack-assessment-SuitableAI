@@ -168,7 +168,7 @@ const HSteppers = () => {
       </nav> */}
       <table className="flex flex-col  bg-white justify-center  w-10/12 drop-shadow-xl px-8">
         <thead className="flex-1 overflow-y-scroll">
-          <tr className=" flex flex-col lg:flex-row border-b lg:border-grey-light min-w-fit">
+          <tr className=" lg:flex flex-col lg:flex-row border-b lg:border-grey-light min-w-fit hidden">
             {employeStage.map((step, stepIdx) => (
               <td
                 className="relative py-3 w-full  lg:py-4 first:pl-8 font-semibold first:xl:w-10/12 first:w-full text-xl"
@@ -179,7 +179,7 @@ const HSteppers = () => {
             ))}
           </tr>
         </thead>
-        <tbody className="flex-1 overflow-y-scroll ">
+        <tbody className="flex-1  w-full  lg:pt-0 pt-8">
           {employes.map((employe) => (
             <Circle employe={employe} setemployes={setemployes} />
           ))}

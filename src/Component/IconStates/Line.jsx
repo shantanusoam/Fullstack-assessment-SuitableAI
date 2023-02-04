@@ -1,6 +1,6 @@
 import React from 'react';
 import dollar from '../../assets/dollar.png';
-const Line = ({ id, status, days }) => {
+const Line = ({ id, status, days, userExsists }) => {
   const [width, setWidth] = React.useState(0);
   React.useEffect(() => {
     setWidth((100 * days) / 100);
@@ -12,11 +12,17 @@ const Line = ({ id, status, days }) => {
       }`}
       aria-hidden="true"
     >
-      {status == 'complete' && <div className="h-0.5 w-full bg-lime-600" />}
+      {status == 'complete' && (
+        <div
+          className={`lg:h-0.5 h-0.5 lg:w-full ${
+            userExsists ? 'bg-lime-600' : 'bg-0'
+          }`}
+        />
+      )}
       {status == 'current' && id == 3 ? (
         <>
           <div
-            className="h-0.5  bg-lime-500 animate-pulse border-2  border-lime-600"
+            className={`h-0.5  bg-lime-500 animate-pulse border-2  border-lime-600`}
             style={{ width: `${width}%` }}
           ></div>
           <div className="relative">

@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <div className="w-full h-60% flex justify-center bg-lime-500">
       <div className="w-10/12 pt-20">
-        <div className="text-5xl font-bold text-white">Referral Status 🎁</div>
+        <div className="lg:text-5xl text-4xl font-bold text-white">
+          Referral Status 🎁
+        </div>
         <div>
           <div className="pt-2  mx-auto text-gray-600">
             <input
