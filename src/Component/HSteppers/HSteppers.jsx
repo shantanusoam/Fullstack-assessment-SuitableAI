@@ -12,8 +12,8 @@ const HSteppers = () => {
       employeeName: 'Anmol Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
-      Stage: 'Joined',
-      daysRemaining: 20,
+      Stage: 'Referred',
+      daysRemaining: 80,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -23,8 +23,8 @@ const HSteppers = () => {
       employeeName: 'Anmol Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
-      Stage: 'Joined',
-      daysRemaining: 20,
+      Stage: 'Reward',
+      daysRemaining: 80,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -34,8 +34,8 @@ const HSteppers = () => {
       employeeName: 'Anmol Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
-      Stage: 'Joined',
-      daysRemaining: 20,
+      Stage: 'Interviewed',
+      daysRemaining: 15,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -45,8 +45,8 @@ const HSteppers = () => {
       employeeName: 'Anmol Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
-      Stage: 'Joined',
-      daysRemaining: 20,
+      Stage: 'Reward',
+      daysRemaining: 19,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -57,9 +57,9 @@ const HSteppers = () => {
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Joined',
-      daysRemaining: 20,
+      daysRemaining: 0,
       reward: 200,
-      fulfilled: false,
+      fulfilled: true,
       userExsists: true,
     },
     {
@@ -68,7 +68,7 @@ const HSteppers = () => {
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Joined',
-      daysRemaining: 20,
+      daysRemaining: 65,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -79,7 +79,7 @@ const HSteppers = () => {
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Joined',
-      daysRemaining: 20,
+      daysRemaining: 60,
       reward: 200,
       fulfilled: false,
       userExsists: false,
@@ -90,7 +90,7 @@ const HSteppers = () => {
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Joined',
-      daysRemaining: 20,
+      daysRemaining: 39,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -101,7 +101,7 @@ const HSteppers = () => {
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Joined',
-      daysRemaining: 20,
+      daysRemaining: 28,
       reward: 200,
       fulfilled: false,
       userExsists: true,
@@ -112,7 +112,7 @@ const HSteppers = () => {
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Joined',
-      daysRemaining: 20,
+      daysRemaining: 34,
       reward: 2000,
       fulfilled: false,
       userExsists: true,
@@ -143,7 +143,7 @@ const HSteppers = () => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex  flex-col w-full justify-center items-center ">
       {/* <nav aria-label="Progress">
         <ol role="list" className="flex relative  items-center ">
           {employees.map((step, stepIdx) => (
@@ -166,17 +166,22 @@ const HSteppers = () => {
           ))}
         </ol>
       </nav> */}
-      <table className="flex flex-col w-full">
+      <table className="flex flex-col  bg-white justify-center  w-10/12 drop-shadow-xl px-8">
         <thead className="flex-1 overflow-y-scroll">
-          <tr className=" flex flex-col lg:flex-row border-b lg:border-grey-light">
+          <tr className=" flex flex-col lg:flex-row border-b lg:border-grey-light min-w-fit">
             {employeStage.map((step, stepIdx) => (
-              <td className="relative py-3 w-full  lg:py-4">{step.name}</td>
+              <td
+                className="relative py-3 w-full  lg:py-4 first:pl-8 font-semibold first:xl:w-10/12 first:w-full text-xl"
+                key={stepIdx}
+              >
+                {step.name}
+              </td>
             ))}
           </tr>
         </thead>
-        <tbody className="flex-1 overflow-y-scroll">
+        <tbody className="flex-1 overflow-y-scroll ">
           {employes.map((employe) => (
-            <Circle employe={employe} />
+            <Circle employe={employe} setemployes={setemployes} />
           ))}
         </tbody>
       </table>
