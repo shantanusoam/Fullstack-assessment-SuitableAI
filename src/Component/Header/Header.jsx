@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ setSearchTerm }) => {
   return (
     <div className="w-full h-60% flex justify-center bg-lime-500">
       <div className="w-10/12 pt-20">
@@ -14,6 +14,7 @@ const Header = () => {
               type="search"
               name="search"
               placeholder="Search"
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>

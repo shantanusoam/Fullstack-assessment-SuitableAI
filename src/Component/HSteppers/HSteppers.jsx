@@ -32,7 +32,11 @@ const HSteppers = ({ employes, setemployes }) => {
         </thead>
         <tbody className="flex-1  w-full  lg:pt-0 pt-8">
           {employes.map((employe) => (
-            <Circle employe={employe} setemployes={setemployes} />
+            <Circle
+              employe={employe}
+              setemployes={setemployes}
+              key={employe.id}
+            />
           ))}
         </tbody>
       </table>

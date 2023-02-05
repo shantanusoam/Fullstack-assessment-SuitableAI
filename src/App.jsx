@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import Circle from './circle';
@@ -10,6 +10,7 @@ import Header from './Component/Header/Header';
 import Men from './assets/MenDefault.png';
 function App() {
   const [count, setCount] = useState(0);
+
   const [employes, setemployes] = useState([
     {
       id: 0,
@@ -24,7 +25,7 @@ function App() {
     },
     {
       id: 1,
-      employeeName: 'Anmol Mahajan',
+      employeeName: 'Subham Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Interviewed',
@@ -35,7 +36,7 @@ function App() {
     },
     {
       id: 2,
-      employeeName: 'Anmol Mahajan',
+      employeeName: 'shantanu Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Hired',
@@ -46,7 +47,7 @@ function App() {
     },
     {
       id: 3,
-      employeeName: 'Anmol Mahajan',
+      employeeName: 'sivam Mahajan',
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Interviewed',
@@ -57,7 +58,7 @@ function App() {
     },
     {
       id: 4,
-      employeeName: 'Anmol Mahajan',
+      employeeName: 'rupa gori',
       post: 'Sr.Engineer',
       userPic: Men,
       Stage: 'Referred',
@@ -122,13 +123,22 @@ function App() {
       userExsists: true,
     },
   ]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [results, setResults] = useState(employes);
+
+  useEffect(() => {
+    const results = employes.filter((item) =>
+      item.employeeName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setResults(results);
+  }, [searchTerm]);
   return (
     <div className="App">
       {/* <Circle2 /> */}
       <ProgressBar2 value={100} max={100} animationDuration={2000} />
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
       <div className="-mt-48">
-        <HSteppers employes={employes} setemployes={setemployes} />
+        <HSteppers employes={results} setemployes={setemployes} />
       </div>
 
       {/* <ProgressBar /> */}
