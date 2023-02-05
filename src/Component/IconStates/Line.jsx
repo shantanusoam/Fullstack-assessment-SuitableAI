@@ -1,5 +1,5 @@
 import React from 'react';
-import dollar from '../../assets/dollar.png';
+import dollar from '../../assets/Dollar.png';
 const Line = ({ id, status, days, userExsists }) => {
   const [width, setWidth] = React.useState(0);
   React.useEffect(() => {
