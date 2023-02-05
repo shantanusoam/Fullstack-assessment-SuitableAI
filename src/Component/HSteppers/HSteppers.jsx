@@ -30,7 +30,7 @@ const HSteppers = ({ employes, setemployes }) => {
             ))}
           </tr>
         </thead>
-        <tbody className="flex-1  w-full  lg:pt-0 pt-8">
+        <tbody className={`flex-1  w-full  lg:pt-0 pt-8  `}>
           {employes.map((employe) => (
             <Circle
               employe={employe}

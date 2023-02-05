@@ -62,7 +62,9 @@ export default function Circle({ employe, setemployes }) {
       role="list"
       className={`flex flex-col items-center justify-center lg:flex-row  rounded-md ${
         employe.id % 2 === 0 ? 'bg-slate-100' : 'bg-white'
-      } lg:border-grey-light py-4`}
+      } lg:border-grey-light py-4
+      ${!employe.userExsists && 'select-none pointer-events-none'}
+      `}
     >
       <td className="relative px-4 py-3 w-full lg:px-6 lg:py-4 min-w-fit">
         <div className="flex flex-row">
