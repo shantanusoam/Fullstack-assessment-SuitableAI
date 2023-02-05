@@ -25,7 +25,9 @@ const HSteppers = ({ employes, setemployes }) => {
                 className="relative py-3 w-full  lg:py-4 first:pl-8 font-semibold first:xl:w-10/12 first:w-full text-xl"
                 key={stepIdx}
               >
-                {step.name}
+                <div className="first:min-w-max 2xl:w-48 xl:w-36">
+                  {step.name}
+                </div>
               </td>
             ))}
           </tr>

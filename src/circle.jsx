@@ -10,13 +10,7 @@ function classNames(...classes) {
 }
 
 export default function Circle({ employe, setemployes }) {
-  const [status, setStatus] = useState([
-    { id: 0, name: 'Referred', status: 'upcoming' },
-    { id: 1, name: 'Interviewed', status: 'upcoming' },
-    { id: 2, name: 'Hired', status: 'upcoming' },
-    { id: 3, name: 'Joined', status: 'upcoming' },
-    { id: 4, name: 'Reward', status: 'upcoming' },
-  ]);
+  const [status, setStatus] = useState(employe.Stages);
   const [progressBarValue, setprogressBarValue] = useState(0);
 
   useEffect(() => {
@@ -66,8 +60,8 @@ export default function Circle({ employe, setemployes }) {
       ${!employe.userExsists && 'select-none pointer-events-none'}
       `}
     >
-      <td className="relative px-4 py-3 w-full lg:px-6 lg:py-4 min-w-fit">
-        <div className="flex flex-row">
+      <td className="relative px-4 py-3 w-full lg:px-6 lg:py-4 ">
+        <div className="flex flex-row w-56">
           <img src={employe.userPic} />
           <div className="flex flex-col pl-2">
             <div className="font-bold text-lg text-slate-900">
@@ -85,7 +79,7 @@ export default function Circle({ employe, setemployes }) {
           className={`
             ${
               (stepIdx !== status.length - 1 ? '' : '',
-              'relative px-4 py-3 w-full lg:px-6 lg:py-4 lg:block hidden')
+              'relative px-4 py-3 w-full lg:h-0  h-32 lg:px-6 lg:py-4 lg:block ')
             }`}
         >
           {/* {' '} */}
@@ -109,8 +103,7 @@ export default function Circle({ employe, setemployes }) {
             />
             <CureenIcons
               employe={employe}
-              status={step.status}
-              id={step.id}
+              step={step}
               userExsists={employe.userExsists}
             />
           </div>

@@ -7,14 +7,14 @@ const Line = ({ id, status, days, userExsists }) => {
   }, []);
   return (
     <div
-      className={`absolute inset-0 flex items-center  ${
+      className={`absolute lg:inset-0 inset-y-0 left-3 flex items-center  ${
         id == 4 ? 'hidden' : ''
       }`}
       aria-hidden="true"
     >
       {status == 'complete' && (
         <div
-          className={`lg:h-0.5 h-0.5 lg:w-full ${
+          className={`lg:h-0.5 h-full w-0.5 lg:w-full ${
             userExsists ? 'bg-lime-600' : 'bg-gray-200'
           }`}
         />
@@ -37,7 +37,7 @@ const Line = ({ id, status, days, userExsists }) => {
       )}
       {status == 'current' && (
         <div
-          className="h-0.5  bg-gray-700 animate-pulse border-2 border-dashed"
+          className="lg:h-0.5 h-full  bg-gray-700 animate-pulse border-2 border-dashed"
           style={{ width: `${id == 3 ? 100 - width : 100}%` }}
         />
       )}
