@@ -15,7 +15,7 @@ const Line = ({ id, status, days, userExsists }) => {
       {status == 'complete' && (
         <div
           className={`lg:h-0.5 h-0.5 lg:w-full ${
-            userExsists ? 'bg-lime-600' : 'bg-0'
+            userExsists ? 'bg-lime-600' : 'bg-gray-200'
           }`}
         />
       )}

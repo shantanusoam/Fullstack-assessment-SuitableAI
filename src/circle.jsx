@@ -11,7 +11,7 @@ function classNames(...classes) {
 
 export default function Circle({ employe, setemployes }) {
   const [status, setStatus] = useState([
-    { id: 0, name: 'Referred', status: 'current' },
+    { id: 0, name: 'Referred', status: 'upcoming' },
     { id: 1, name: 'Interviewed', status: 'upcoming' },
     { id: 2, name: 'Hired', status: 'upcoming' },
     { id: 3, name: 'Joined', status: 'upcoming' },
@@ -23,7 +23,7 @@ export default function Circle({ employe, setemployes }) {
     //alter the whole array with the current stage of employee and make evry stage before that complete and after that upcoming
     var alterStatus = status;
     var currentid = alterStatus.filter((to) => to.name == employe.Stage)[0].id;
-
+    console.log(currentid);
     alterStatus.map((stage) => {
       if (stage.id < currentid) {
         alterStatus[stage.id].status = 'complete';
@@ -105,7 +105,12 @@ export default function Circle({ employe, setemployes }) {
               days={employe.daysRemaining}
               userExsists={employe.userExsists}
             />
-            <CureenIcons employe={employe} status={step.status} id={step.id} />
+            <CureenIcons
+              employe={employe}
+              status={step.status}
+              id={step.id}
+              userExsists={employe.userExsists}
+            />
           </div>
         </td>
       ))}
