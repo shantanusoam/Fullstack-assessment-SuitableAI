@@ -36,7 +36,7 @@ const CureenIcons = ({ employe, step, userExsists }) => {
           {!isDesktop && (
             <div className="absolute left-12 w-48">
               {step.name}
-              {step.date}
+              {''} {step.date}
             </div>
           )}
           {step.status == 'current' && (
