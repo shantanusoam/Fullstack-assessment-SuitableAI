@@ -20,23 +20,21 @@ export default function Circle({ employe, setemployes }) {
   const [progressBarValue, setprogressBarValue] = useState(0);
 
   useEffect(() => {
-    setStatus((prevstatus) =>
-      prevstatus.map((status) => {
-        console.log(employe.Stage, status.name);
+    //alter the whole array with the current stage of employee and make evry stage before that complete and after that upcoming
+    var alterStatus = status;
+    var currentid = alterStatus.filter((to) => to.name == employe.Stage)[0].id;
 
-        if (employe.Stage == status.name) {
-          console.log(prevstatus);
-          id = status.id;
-          return { ...status, status: 'current' };
-        } else if (status.status !== 'complete') {
-          // console.log(prevstatus);
-          return { ...status, status: 'complete' };
-        } else {
-          // console.log(prevstatus);
-          return { ...status, status: 'upcoming' };
-        }
-      })
-    );
+    alterStatus.map((stage) => {
+      if (stage.id < currentid) {
+        alterStatus[stage.id].status = 'complete';
+      } else if (stage.id > currentid) {
+        alterStatus[stage.id].status = 'upcoming';
+      } else {
+        console.log(status);
+        alterStatus[stage.id].status = 'current';
+      }
+    });
+    setStatus(alterStatus);
     var id = status.filter((to) => to.status == 'current')[0].id;
     console.log(id);
     setprogressBarValue((id * 100 + status.length) / status.length);
