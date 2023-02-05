@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import useMediaQuery from '../../Hooks/CustomMediaQuery';
 const CureenIcons = ({ employe, step, userExsists }) => {
-  const isDesktop = useMediaQuery('(min-width:1148px)');
+  const isDesktop = useMediaQuery('(min-width:1024px)');
   return (
     <>
       {step.id == 4 ? (
