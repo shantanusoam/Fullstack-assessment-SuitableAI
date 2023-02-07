@@ -1,7 +1,7 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
 import React, { useState } from 'react';
 import Circle from '../../circle';
-import Circle2 from '../../circle2';
+
 import Stepper from '../stepper/Stepper';
 
 const HSteppers = ({ employes, setemployes }) => {

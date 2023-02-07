@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
-import Circle from './circle';
-import Circle2 from './circle2';
 import HSteppers from './Component/HSteppers/HSteppers';
-import ProgressBar from './Component/Progress/progressBar';
 import ProgressBar2 from './Component/Progress/ProgressBar2';
 import Header from './Component/Header/Header';
 import Men from './assets/MenDefault.png';

@@ -1,6 +1,6 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { useEffect, useState } from 'react';
-import ProgressBar from './Component/Progress/progressBar';
+
 import ProgressBar2 from './Component/Progress/ProgressBar2';
 import Men from './assets/MenDefault.png';
 import CureenIcons from './Component/IconStates/CureenIcons';
